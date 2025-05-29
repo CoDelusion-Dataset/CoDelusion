@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 虚拟环境
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 数据文件
+*.csv
+*.xlsx
+*.json
+*.npy
+*.npz
+
+# 输出文件
+*_evaluation_results.csv
+*_error_type_performance.png
+*_performance_heatmap.png
+*_error_type_distribution.png
+
+# 日志
+*.log
+
+# OS相关
+.DS_Store
+Thumbs.db 
