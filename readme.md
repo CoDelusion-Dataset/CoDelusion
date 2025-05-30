@@ -10,14 +10,14 @@ This project consists of three main components:
 
 ```
 CoDelusion/
-├── CoDelusion/             # Code Generation Hallucination Dataset
+├── dataset/                # Code Generation Hallucination Dataset
 ├── llm_code_detection/     # CodeBERT-based Code Detector 
 └── llm_code_classify/      # LLM Code Hallucination Classification Tool
 ```
 
 ## Components
 
-### 1. CoDelusion Dataset (`./CoDelusion/`)
+### 1. CoDelusion Dataset (`./dataset/`)
 
 A comprehensive dataset for studying hallucinations in LLM-generated code. The dataset includes:
 - Code generation instances from multiple LLMs
@@ -25,7 +25,7 @@ A comprehensive dataset for studying hallucinations in LLM-generated code. The d
 - Manually annotated hallucination labels
 - Multi-model, multi-sample comparisons
 
-For detailed dataset format and hallucination type descriptions, see [CoDelusion Dataset Documentation](./CoDelusion/README.md).
+For detailed dataset format and hallucination type descriptions, see [CoDelusion Dataset Documentation](./dataset/README.md).
 
 ### 2. CodeBERT-based Code Detector (`./llm_code_detection/`)
 
