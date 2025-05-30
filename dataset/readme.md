@@ -4,6 +4,17 @@ This contains detailed descriptions of dataset formats of the CoDelusion and hal
 
 The base task dataset for the CoDelusion is [HumanEval](https://github.com/openai/human-eval) and [APPS](https://github.com/hendrycks/apps).
 
+The LLMs used to generate code samples are shown in the table below.
+
+| Model                                                        | Scale                  | License | Architecture | Type    |
+| ------------------------------------------------------------ | ---------------------- | ------- | ------------ | ------- |
+| [CodeLlama-7B-Instruct](https://github.com/meta-llama/codellama) | 7B                     | Open    | Dense        | Code    |
+| [DeepSeek-Coder-V2-Lite-Instruct-16B](https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct) | 16B<br />(active 2.4B) | Open    | MoE          | Code    |
+| [DeepSeek-V2.5-1210](https://huggingface.co/deepseek-ai/DeepSeek-V2.5) | 236B<br />(active 21B) | Open    | MoE          | General |
+| [Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct) | 32B                    | Open    | Dense        | Code    |
+| [GPT-4o-2024-08-06](https://platform.openai.com/docs/models/gpt-4o) | -                      | Closed  | -            | General |
+| [Claude-3.5-Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) | -                      | Closed  | -            | General |
+
 ## 1. Dataset Format
 
 Each entry in the CoDelusion dataset records a code generation instance along with its metadata, test outcomes, and manually annotated hallucination labels. The dataset supports multi-model, multi-sample comparisons and enables fine-grained analysis of hallucination types across different LLMs. The table below describes the structure and meaning of each field.
