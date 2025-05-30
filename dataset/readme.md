@@ -15,6 +15,8 @@ The LLMs used to generate code samples are shown in the table below.
 | [GPT-4o-2024-08-06](https://platform.openai.com/docs/models/gpt-4o) | -                      | Closed  | -            | General |
 | [Claude-3.5-Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) | -                      | Closed  | -            | General |
 
+
+
 ## 1. Dataset Format
 
 Each entry in the CoDelusion dataset records a code generation instance along with its metadata, test outcomes, and manually annotated hallucination labels. The dataset supports multi-model, multi-sample comparisons and enables fine-grained analysis of hallucination types across different LLMs. The table below describes the structure and meaning of each field.
@@ -34,7 +36,9 @@ Each entry in the CoDelusion dataset records a code generation instance along wi
 | **hallucination**       | Manually annotated hallucination types                       | Stored as a dictionary of IDs and labels. A generation may contain multiple hallucinations. Format: `{1.1: "xxx", 2.1: "xxx"}` or `None` if no hallucination detected |
 | **canonical_solution**  | Reference solution provided by the dataset                   | Official reference implementation from APPS or HumanEval+    |
 
-### 2. Introduction to Hallucination Types
+
+
+## 2. Introduction to Hallucination Types
 
 In the CoDelusion dataset, hallucinations in LLM-generated code are categorized into **seven main types**, covering both functional and non-functional errors. These categories are further divided into **thirteen fine-grained subtypes**, enabling precise analysis and annotation. Below is an overview of the hallucination types:
 
