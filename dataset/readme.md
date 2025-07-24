@@ -42,7 +42,7 @@ Each entry in the CoDelusion dataset records a code generation instance along wi
 
 In the CoDelusion dataset, hallucinations in LLM-generated code are categorized into **seven main types**, covering both functional and non-functional errors. These categories are further divided into **thirteen fine-grained subtypes**, enabling precise analysis and annotation. Below is an overview of the hallucination types:
 
-![Hallucination Taxonomy for Generated Code1](/assets/Hallucination Taxonomy for Generated Code1.png)
+![Hallucination Taxonomy for Generated Code1](./assets/Hallucination Taxonomy for Generated Code1.png)
 
 #### 1. Data-Oriented Issues
 
