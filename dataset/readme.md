@@ -42,7 +42,7 @@ Each entry in the CoDelusion dataset records a code generation instance along wi
 
 In the CoDelusion dataset, hallucinations in LLM-generated code are categorized into **seven main types**, covering both functional and non-functional errors. These categories are further divided into **thirteen fine-grained subtypes**, enabling precise analysis and annotation. Below is an overview of the hallucination types:
 
-![Hallucination Taxonomy for Generated Code1](./assets/Hallucination Taxonomy for Generated Code1.png)
+![Hallucination Taxonomy for Generated Code1](../assets/Hallucination Taxonomy for Generated Code1.png)
 
 #### 1. Data-Oriented Issues
 
@@ -266,3 +266,60 @@ This group captures outputs that violate the target language's syntax rules or f
       """
       # No actual implementation provided
   ```
+
+
+
+## 3. Prompt Structure for Code Generation
+
+We use a dynamic prompt structure consisting of a consistent ```System Prompt``` and a variable ```User Prompt```. The ```User Prompt``` adapts to the task's requirements, supporting two distinct modes: **function completion** and **full script generation**. This flexibility is necessary to handle different problem formats. For example, problems from the **APPS** dataset may come with or without a function header, thus requiring both modes. In contrast, all problems from the **HumanEval** dataset provide a function header, exclusively using the function completion mode.
+
+### 3.1 System Prompt
+
+This prompt sets the LLM's role as an expert programmer, ensuring high-quality, efficient, and correct code output.
+
+```
+You are an expert programmer focused on writing clean, efficient, and correct Python code to solve the given problem. Your response should be a complete, runnable code solution that strictly adheres to the task requirements.
+```
+
+### 3.2 User Prompt
+
+The User Prompt's format is determined by the task type.
+
+#### Mode 1: Function/Method Completion
+
+This mode is used when a specific function or class structure is provided. The goal is to implement the logic within the given signature.
+
+```
+Task: Complete the Python code for the provided function/method signature to solve the problem.
+
+Problem Description:
+<Problem description from the 'question' field>
+
+Code Signature to Implement:
+<The function/method definition line from 'starter_code'>
+
+Instructions:
+- Your response must contain the full, complete implementation of the provided class or function.
+- Do not add any code for reading input or printing output.
+- Do not include test cases or example usage.
+```
+
+#### Mode 2: Full Script Generation
+
+This mode is used for algorithmic problems where no starting code is given. The goal is to write a complete, standalone script that handles its own standard input (`stdin`) and standard output (`stdout`).
+
+```
+Task: Write a complete, standalone Python script to solve the algorithmic problem.
+
+Problem Description:
+<Problem description from the 'question' field>
+
+Execution Requirements:
+- The script must read all required data from standard input (stdin).
+- The script must write the final answer to standard output (stdout).
+- The entire solution, including input/output handling, must be contained in a single script.
+
+Instructions:
+- Analyze the problem to determine the correct input format and output format.
+- Write a complete script that can be executed directly to solve the problem.
+```

@@ -22,6 +22,9 @@ CoDelusion/
 ### 1. CoDelusion Dataset (`./dataset/`)
 
 A comprehensive dataset for studying hallucinations in LLM-generated code. The dataset includes:
+
+- Detailed prompt for code generation
+
 - Code generation instances from multiple LLMs
 - Test outcomes and execution results
 - Manually annotated hallucination labels
